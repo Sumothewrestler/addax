@@ -9,27 +9,27 @@ const GallerySection = () => {
   const galleryImages = [
     {
       id: 1,
-      src: '/images/gallery/addax-shop-1.jpg',
-      alt: 'ADDAX AUTOMOTIVE Service Center - Front View',
-      caption: 'Our professional service center in Vanagaram, Chennai'
+      src: '/images/services/1.jpeg',
+      alt: 'Professional Automotive Service',
+      caption: 'Expert car repair and maintenance services'
     },
     {
       id: 2,
-      src: '/images/gallery/addax-shop-2.jpg', 
-      alt: 'ADDAX AUTOMOTIVE Workshop Interior',
-      caption: 'Well-equipped workshop with modern tools and equipment'
+      src: '/images/services/2.jpeg', 
+      alt: 'Advanced Diagnostic Equipment',
+      caption: 'State-of-the-art diagnostic tools and equipment'
     },
     {
       id: 3,
-      src: '/images/gallery/addax-shop-3.jpg',
-      alt: 'ADDAX AUTOMOTIVE Service Area',
-      caption: 'Dedicated service area for car repair and maintenance'
+      src: '/images/services/3.jpeg',
+      alt: 'Quality Service Work',
+      caption: 'Professional service work in progress'
     },
     {
       id: 4,
-      src: '/images/services/battery-service.jpg',
-      alt: 'Battery Service and Replacement',
-      caption: 'Professional battery testing and replacement service'
+      src: '/images/services/4.jpeg',
+      alt: 'ADDAX AUTOMOTIVE Service Center',
+      caption: 'Modern automotive service center in Chennai'
     }
   ];
 
@@ -55,12 +55,30 @@ const GallerySection = () => {
               className="group cursor-pointer"
               onClick={() => setSelectedImage(image.src)}
             >
-              <div className="relative h-64 overflow-hidden rounded-lg bg-gray-900">
+              <div className="relative h-64 overflow-hidden rounded-lg bg-gray-800 flex items-center justify-center">
+                {/* Placeholder */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-gray-400 text-sm">Loading...</div>
+                </div>
                 <Image
                   src={image.src}
                   alt={image.alt}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  width={400}
+                  height={256}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 relative z-10"
+                  onError={(e) => {
+                    console.error(`Failed to load image: ${image.src}`, e);
+                    // Show fallback
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
+                  onLoad={() => {
+                    console.log(`Successfully loaded image: ${image.src}`);
+                  }}
+                  priority={image.id <= 2}
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+Rick+ne5KuTVpeZTRdwdvo9G/q4kSHx9VIrOO4fTl5Pj6hF7KH6xWGUjeMq8rZFJEn5MlDUJxI2Kop6fCJRjqMZJjWzC+IyVhiRFGrz6hClN7YEtNf7J7DJGwF3FQVPFN6FMKZ8SzJ3PwRNNfQJmtT2+QVQPW7/2Q=="
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-opacity duration-300" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">

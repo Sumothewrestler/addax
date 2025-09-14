@@ -89,7 +89,7 @@ const DetailedServices = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-900">
+    <section id="services" className="py-16 bg-gray-900 scroll-mt-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 racing-sans-one-regular">
@@ -105,7 +105,8 @@ const DetailedServices = () => {
           {services.map((service) => (
             <div
               key={service.id}
-              className="bg-black rounded-lg p-6 hover:bg-gray-800 transition-colors duration-300 group"
+              id={`service-${service.id}`}
+              className="bg-black rounded-lg p-6 hover:bg-gray-800 transition-colors duration-300 group scroll-mt-20"
             >
               <div className="flex items-start mb-4">
                 <div className="flex-shrink-0 mr-4">

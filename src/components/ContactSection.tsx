@@ -38,10 +38,6 @@ const ContactSection = () => {
     {
       title: '🚨 Emergency Service',
       message: 'Hi! I need emergency roadside assistance. My car broke down and needs immediate help.'
-    },
-    {
-      title: '💰 Get Pricing',
-      message: 'Hi! Can you please share your service pricing list and maintenance packages?'
     }
   ];
 
@@ -105,7 +101,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="bg-gray-900 py-12">
+    <section id="contact" className="bg-gray-900 py-12 scroll-mt-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 racing-sans-one-regular">
@@ -189,12 +185,9 @@ const ContactSection = () => {
                     onClick={() => sendWhatsAppMessage(service.message)}
                     className="bg-gray-50 hover:bg-green-50 border border-gray-200 hover:border-green-300 rounded-lg p-4 text-left transition-all duration-200 hover:shadow-md"
                   >
-                    <h4 className="font-semibold text-gray-800 mb-1">
+                    <h4 className="font-semibold text-gray-800">
                       {service.title}
                     </h4>
-                    <p className="text-xs text-gray-500 line-clamp-2">
-                      {service.message.substring(0, 60)}...
-                    </p>
                   </button>
                 ))}
               </div>

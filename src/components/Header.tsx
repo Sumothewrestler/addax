@@ -8,38 +8,61 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
+  const scrollToService = (serviceId: number) => {
+    const element = document.getElementById(`service-${serviceId}`);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start',
+        inline: 'nearest' 
+      });
+    }
+    setIsMenuOpen(false);
+    setActiveDropdown(null);
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start',
+        inline: 'nearest' 
+      });
+    }
+    setIsMenuOpen(false);
+    setActiveDropdown(null);
+  };
+
   const navItems = [
     {
       name: 'SERVICES',
       submenu: [
-        { name: 'General Car Service', href: '/services/general-service' },
-        { name: 'Engine Diagnostics', href: '/services/diagnostics' },
-        { name: 'Battery Replacement', href: '/services/battery' },
-        { name: 'AC Service', href: '/services/ac-service' },
-        { name: 'Denting & Painting', href: '/services/denting-painting' },
-        { name: 'Brakes & Suspension', href: '/services/brakes-suspension' },
-        { name: 'Tyre Replacement', href: '/services/tyre-replacement' },
+        { name: 'General Car Service', serviceId: 1 },
+        { name: 'Engine Diagnostics', serviceId: 2 },
+        { name: 'Battery Replacement', serviceId: 3 },
+        { name: 'AC Service', serviceId: 4 },
+        { name: 'Denting & Painting', serviceId: 5 },
+        { name: 'Brakes & Suspension', serviceId: 6 },
+        { name: 'Tyre Replacement', serviceId: 7 },
       ]
     },
     {
       name: 'INSURANCE',
       submenu: [
-        { name: 'Claim Assistance', href: '/insurance/claim-assistance' },
-        { name: 'Documentation Help', href: '/insurance/documentation' },
-        { name: 'Surveyor Coordination', href: '/insurance/surveyor' },
-        { name: 'Direct Settlement', href: '/insurance/settlement' },
+        { name: 'Insurance Claim Assistance', serviceId: 8 },
+        { name: 'Insurance Section', sectionId: 'insurance' },
       ]
     },
     {
       name: 'PRICING',
       submenu: [
-        { name: 'Service Pricing', href: '/pricing/services' },
-        { name: 'Maintenance Packages', href: '/pricing/packages' },
-        { name: 'Get Quote', href: '/pricing/quote' },
+        { name: 'Service Pricing', sectionId: 'pricing' },
+        { name: 'Maintenance Packages', sectionId: 'pricing' },
       ]
     },
     { name: 'ABOUT', href: '/about' },
-    { name: 'CONTACT', href: '/contact' },
+    { name: 'CONTACT', sectionId: 'contact' },
   ];
 
   return (
@@ -78,25 +101,37 @@ const Header = () => {
                 onMouseEnter={() => setActiveDropdown(item.name)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <Link
-                  href={item.href || '#'}
+                <button
+                  onClick={() => {
+                    if (item.href) {
+                      window.location.href = item.href;
+                    } else if (item.sectionId) {
+                      scrollToSection(item.sectionId);
+                    }
+                  }}
                   className="flex items-center space-x-1 hover:text-red-500 transition-colors py-2 bruno-ace-regular"
                 >
                   <span>{item.name}</span>
                   {item.submenu && <ChevronDown size={16} />}
-                </Link>
+                </button>
 
                 {/* Dropdown Menu */}
                 {item.submenu && activeDropdown === item.name && (
                   <div className="absolute top-full left-0 bg-black border border-gray-800 rounded-lg shadow-lg py-2 w-48 z-50">
                     {item.submenu.map((subItem) => (
-                      <Link
+                      <button
                         key={subItem.name}
-                        href={subItem.href}
-                        className="block px-4 py-2 hover:bg-red-500 hover:text-white transition-colors"
+                        onClick={() => {
+                          if (subItem.serviceId) {
+                            scrollToService(subItem.serviceId);
+                          } else if (subItem.sectionId) {
+                            scrollToSection(subItem.sectionId);
+                          }
+                        }}
+                        className="block w-full text-left px-4 py-2 hover:bg-red-500 hover:text-white transition-colors"
                       >
                         {subItem.name}
-                      </Link>
+                      </button>
                     ))}
                   </div>
                 )}
@@ -124,24 +159,36 @@ const Header = () => {
             <div className="container mx-auto px-4 py-4">
               {navItems.map((item) => (
                 <div key={item.name} className="mb-4">
-                  <Link
-                    href={item.href || '#'}
-                    className="block py-2 text-lg font-medium border-b border-gray-800"
-                    onClick={() => setIsMenuOpen(false)}
+                  <button
+                    onClick={() => {
+                      if (item.href) {
+                        window.location.href = item.href;
+                      } else if (item.sectionId) {
+                        scrollToSection(item.sectionId);
+                      }
+                      setIsMenuOpen(false);
+                    }}
+                    className="block w-full text-left py-2 text-lg font-medium border-b border-gray-800"
                   >
                     {item.name}
-                  </Link>
+                  </button>
                   {item.submenu && (
                     <div className="mt-2 ml-4">
                       {item.submenu.map((subItem) => (
-                        <Link
+                        <button
                           key={subItem.name}
-                          href={subItem.href}
-                          className="block py-1 text-gray-300 hover:text-red-500 transition-colors"
-                          onClick={() => setIsMenuOpen(false)}
+                          onClick={() => {
+                            if (subItem.serviceId) {
+                              scrollToService(subItem.serviceId);
+                            } else if (subItem.sectionId) {
+                              scrollToSection(subItem.sectionId);
+                            }
+                            setIsMenuOpen(false);
+                          }}
+                          className="block w-full text-left py-1 text-gray-300 hover:text-red-500 transition-colors"
                         >
                           {subItem.name}
-                        </Link>
+                        </button>
                       ))}
                     </div>
                   )}

@@ -9,6 +9,7 @@ interface Slide {
   subtitle: string;
   description: string;
   image: string;
+  mobileImage: string;
   cta: string;
   ctaLink: string;
 }
@@ -23,6 +24,7 @@ const HeroSlider = () => {
       subtitle: "",
       description: "",
       image: "/images/hero/1.png",
+      mobileImage: "/images/hero/mobile/1.png",
       cta: "",
       ctaLink: ""
     },
@@ -32,6 +34,7 @@ const HeroSlider = () => {
       subtitle: "",
       description: "",
       image: "/images/hero/2.png",
+      mobileImage: "/images/hero/mobile/2.png",
       cta: "",
       ctaLink: ""
     },
@@ -41,6 +44,7 @@ const HeroSlider = () => {
       subtitle: "",
       description: "",
       image: "/images/hero/3.png",
+      mobileImage: "/images/hero/mobile/3.png",
       cta: "",
       ctaLink: ""
     },
@@ -50,6 +54,27 @@ const HeroSlider = () => {
       subtitle: "",
       description: "",
       image: "/images/hero/4.png",
+      mobileImage: "/images/hero/mobile/4.png",
+      cta: "",
+      ctaLink: ""
+    },
+    {
+      id: 5,
+      title: "",
+      subtitle: "",
+      description: "",
+      image: "/images/hero/5.png",
+      mobileImage: "/images/hero/mobile/5.png",
+      cta: "",
+      ctaLink: ""
+    },
+    {
+      id: 6,
+      title: "",
+      subtitle: "",
+      description: "",
+      image: "/images/hero/5.png",
+      mobileImage: "/images/hero/mobile/6.png",
       cta: "",
       ctaLink: ""
     }
@@ -82,9 +107,15 @@ const HeroSlider = () => {
               index === currentSlide ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            {/* Background Image */}
+            {/* Background Image - Responsive */}
             <div
-              className="absolute inset-0 bg-cover bg-center"
+              className="absolute inset-0 bg-cover bg-center md:hidden"
+              style={{
+                backgroundImage: `url(${slide.mobileImage})`
+              }}
+            />
+            <div
+              className="absolute inset-0 bg-cover bg-center hidden md:block"
               style={{
                 backgroundImage: `url(${slide.image})`
               }}

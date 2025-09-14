@@ -1,6 +1,6 @@
 'use client';
 
-import { Check, Clock, Phone } from 'lucide-react';
+import { Check, Clock } from 'lucide-react';
 
 const PricingSection = () => {
   const serviceCategories = [
@@ -85,7 +85,7 @@ const PricingSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-900">
+    <section id="pricing" className="py-16 bg-gray-900 scroll-mt-20">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
@@ -182,41 +182,6 @@ const PricingSection = () => {
           </div>
         </div>
 
-        {/* Pricing Notes */}
-        <div className="bg-black rounded-lg p-8">
-          <h3 className="text-xl font-bold text-white mb-6 text-center">Important Pricing Information</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h4 className="text-lg font-semibold text-red-500 mb-4">Variable Pricing Factors</h4>
-              <ul className="space-y-2 text-gray-300 text-sm">
-                <li>• <strong>Vehicle Model:</strong> Luxury and imported cars may have higher service costs</li>
-                <li>• <strong>Parts Required:</strong> OEM vs aftermarket parts pricing difference</li>
-                <li>• <strong>Damage Extent:</strong> Minor vs major repair work</li>
-                <li>• <strong>Location:</strong> Pickup/drop charges for distant locations</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold text-red-500 mb-4">What&apos;s Included</h4>
-              <ul className="space-y-2 text-gray-300 text-sm">
-                <li>• <strong>Labor Charges:</strong> Skilled technician work</li>
-                <li>• <strong>Basic Inspection:</strong> Pre and post service check</li>
-                <li>• <strong>Service Report:</strong> Detailed work summary</li>
-                <li>• <strong>Warranty:</strong> 30-90 days on service work</li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-8 text-center">
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-300 flex items-center justify-center">
-                <Phone className="w-4 h-4 mr-2" />
-                Get Custom Quote
-              </button>
-              <button className="border border-red-500 text-red-500 hover:bg-red-500 hover:text-white px-8 py-3 rounded-lg font-medium transition-colors duration-300">
-                Compare Packages
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

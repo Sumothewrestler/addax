@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
-import Image from 'next/image';
 
 interface Testimonial {
   id: number;
@@ -10,7 +9,7 @@ interface Testimonial {
   location: string;
   rating: number;
   comment: string;
-  avatar: string;
+  initial: string;
   bike: string;
 }
 
@@ -24,25 +23,25 @@ const TestimonialCarousel = () => {
       location: 'Vanagaram, Chennai',
       rating: 5,
       comment: 'Excellent service and reasonable prices. ADDAX AUTOMOTIVE fixed my car AC perfectly. Professional team with good technical knowledge.',
-      avatar: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNFRjQ0NDQiLz4KPGC4+cGF0aCBkPSJNMzIgMTZDMzUuNzEgMTYgMzguNjY3IDE4Ljk1IDM4LjY2NyAyMi42NjdDMzguNjY3IDI2LjM4MyAzNS43MSAyOS4zMzMgMzIgMjkuMzMzQzI4LjI5IDI5LjMzMyAyNS4zMzMgMjYuMzgzIDI1LjMzMyAyMi42NjdDMjUuMzMzIDE4Ljk1IDI4LjI5IDE2IDMyIDE2WiIgZmlsbD0id2hpdGUiLz4KPHN0eWxlPgouYXZhdGFyIHsKICBmb250OiA2cHggc2Fucy1zZXJpZjsKICBmaWxsOiB3aGl0ZTsKICB0ZXh0LWFuY2hvcjogbWlkZGxlOwogIGRvbWluYW50LWJhc2VsaW5lOiBjZW50cmFsOwp9Cjwvc3R5bGU+Cjx0ZXh0IHg9IjMyIiB5PSIyMyIgY2xhc3M9ImF2YXRhciI+SzwvdGV4dD4KPC9zdmc+',
+      initial: 'K',
       bike: 'Honda City'
     },
     {
       id: 2,
       name: 'Hariharan',
       location: 'Velachery',
-      rating: 4,
+      rating: 5,
       comment: 'Good service for general maintenance. They explained all the work needed and completed it on time. Will visit again.',
-      avatar: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNFRjQ0NDQiLz4KPHN0eWxlPgouYXZhdGFyIHsKICBmb250OiA2cHggc2Fucy1zZXJpZjsKICBmaWxsOiB3aGl0ZTsKICB0ZXh0LWFuY2hvcjogbWlkZGxlOwogIGRvbWluYW50LWJhc2VsaW5lOiBjZW50cmFsOwp9Cjwvc3R5bGU+Cjx0ZXh0IHg9IjMyIiB5PSIzNiIgY2xhc3M9ImF2YXRhciI+SDwvdGV4dD4KPC9zdmc+',
+      initial: 'H',
       bike: 'Maruti Swift'
     },
     {
       id: 3,
       name: 'Suresh Babu',
       location: 'Avadi, Chennai',
-      rating: 4,
+      rating: 5,
       comment: 'Great experience with car repair service. The staff is helpful and the work quality is good. Affordable pricing.',
-      avatar: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNFRjQ0NDQiLz4KPHN0eWxlPgouYXZhdGFyIHsKICBmb250OiA2cHggc2Fucy1zZXJpZjsKICBmaWxsOiB3aGl0ZTsKICB0ZXh0LWFuY2hvcjogbWlkZGxlOwogIGRvbWluYW50LWJhc2VsaW5lOiBjZW50cmFsOwp9Cjwvc3R5bGU+Cjx0ZXh0IHg9IjMyIiB5PSIzNiIgY2xhc3M9ImF2YXRhciI+UzwvdGV4dD4KPC9zdmc+',
+      initial: 'S',
       bike: 'Hyundai i20'
     },
     {
@@ -51,16 +50,16 @@ const TestimonialCarousel = () => {
       location: 'Ambattur, Chennai',
       rating: 5,
       comment: 'Outstanding denting and painting work! My car looks brand new after the accident repair. Highly recommended!',
-      avatar: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNFRjQ0NDQiLz4KPHN0eWxlPgouYXZhdGFyIHsKICBmb250OiA2cHggc2Fucy1zZXJpZjsKICBmaWxsOiB3aGl0ZTsKICB0ZXh0LWFuY2hvcjogbWlkZGxlOwogIGRvbWluYW50LWJhc2VsaW5lOiBjZW50cmFsOwp9Cjwvc3R5bGU+Cjx0ZXh0IHg9IjMyIiB5PSIzNiIgY2xhc3M9ImF2YXRhciI+RDwvdGV4dD4KPC9zdmc+',
+      initial: 'D',
       bike: 'Toyota Innova'
     },
     {
       id: 5,
       name: 'Ravi Kumar',
       location: 'Thiruvallur, Chennai',
-      rating: 4,
+      rating: 5,
       comment: 'Professional automotive service center. Quick diagnostics and fair pricing. Open 24/7 which is very convenient.',
-      avatar: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNFRjQ0NDQiLz4KPHN0eWxlPgouYXZhdGFyIHsKICBmb250OiA2cHggc2Fucy1zZXJpZjsKICBmaWxsOiB3aGl0ZTsKICB0ZXh0LWFuY2hvcjogbWlkZGxlOwogIGRvbWluYW50LWJhc2VsaW5lOiBjZW50cmFsOwp9Cjwvc3R5bGU+Cjx0ZXh0IHg9IjMyIiB5PSIzNiIgY2xhc3M9ImF2YXRhciI+UjwvdGV4dD4KPC9zdmc+',
+      initial: 'R',
       bike: 'Ford EcoSport'
     }
   ];
@@ -101,13 +100,11 @@ const TestimonialCarousel = () => {
             
             <div className="relative z-10">
               <div className="text-center mb-8">
-                <Image
-                  src={testimonials[currentIndex].avatar}
-                  alt={testimonials[currentIndex].name}
-                  width={64}
-                  height={64}
-                  className="w-16 h-16 rounded-full mx-auto mb-4 border-2 border-red-500"
-                />
+                <div className="w-16 h-16 rounded-full mx-auto mb-4 border-2 border-red-500 bg-red-500 flex items-center justify-center">
+                  <span className="text-white text-2xl font-bold">
+                    {testimonials[currentIndex].initial}
+                  </span>
+                </div>
                 <h3 className="text-white text-xl font-bold">
                   {testimonials[currentIndex].name}
                 </h3>
@@ -170,11 +167,7 @@ const TestimonialCarousel = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 text-center">
-          <div className="text-white">
-            <h4 className="text-3xl font-bold text-red-500 mb-2">200+</h4>
-            <p className="text-gray-400">Happy Customers</p>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 text-center">
           <div className="text-white">
             <h4 className="text-3xl font-bold text-red-500 mb-2">500+</h4>
             <p className="text-gray-400">Cars Serviced</p>
