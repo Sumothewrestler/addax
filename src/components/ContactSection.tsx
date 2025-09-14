@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Phone, MessageCircle, MapPin, Instagram, ExternalLink, X } from 'lucide-react';
+import { Phone, MessageCircle, MapPin, Instagram, X } from 'lucide-react';
 
 const ContactSection = () => {
   const [showWhatsAppModal, setShowWhatsAppModal] = useState(false);
@@ -80,20 +80,12 @@ const ContactSection = () => {
       bgColor: 'bg-pink-600 hover:bg-pink-700',
       description: 'Follow us'
     },
-    {
-      id: 'justdial',
-      label: 'Justdial',
-      icon: <ExternalLink size={24} />,
-      href: 'https://www.justdial.com/Chennai/ADDAX-AUTOMOTIVE-Opposite-To-Sv-High-School-Vanagaram-Vanagaram/044PXX44-XX44-240810180847-M7X5_BZDET',
-      bgColor: 'bg-orange-600 hover:bg-orange-700',
-      description: 'View listing'
-    }
   ];
 
   const handleClick = (button: { id: string; href: string }) => {
     if (button.id === 'whatsapp') {
       setShowWhatsAppModal(true);
-    } else if (button.id === 'instagram' || button.id === 'justdial' || button.id === 'visit') {
+    } else if (button.id === 'instagram' || button.id === 'visit') {
       window.open(button.href, '_blank', 'noopener,noreferrer');
     } else {
       window.location.href = button.href;
@@ -113,8 +105,21 @@ const ContactSection = () => {
           <div className="w-20 h-1 bg-red-500 mx-auto mt-4"></div>
         </div>
 
-        {/* Contact Buttons Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-4xl mx-auto">
+        {/* Mobile View - Simple Contact */}
+        <div className="block md:hidden">
+          <div className="bg-black rounded-lg p-6 max-w-sm mx-auto text-center">
+            <h3 className="text-white font-bold text-xl mb-4">Contact Us</h3>
+            <a 
+              href="tel:+919363039969"
+              className="text-red-500 text-2xl font-bold hover:text-red-400 transition-colors"
+            >
+              +91 93630 39969
+            </a>
+          </div>
+        </div>
+
+        {/* Desktop View - Contact Buttons Grid */}
+        <div className="hidden md:grid grid-cols-4 gap-4 max-w-4xl mx-auto">
           {contactButtons.map((button) => (
             <button
               key={button.id}

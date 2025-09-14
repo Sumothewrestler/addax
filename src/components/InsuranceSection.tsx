@@ -30,27 +30,6 @@ const InsuranceSection = () => {
     }
   ];
 
-  const documentsNeeded = [
-    'Original Insurance Policy',
-    'Driving License (Valid)',
-    'Registration Certificate (RC)',
-    'FIR Copy (for theft/accident cases)',
-    'Repair Estimate',
-    'Photographs of Damage',
-    'Previous Claim History (if any)',
-    'Survey Report'
-  ];
-
-  const insurancePartners = [
-    'New India Assurance',
-    'National Insurance', 
-    'Oriental Insurance',
-    'United India Insurance',
-    'ICICI Lombard',
-    'HDFC ERGO',
-    'Bajaj Allianz',
-    'TATA AIG'
-  ];
 
   const testimonials = [
     {
@@ -108,51 +87,6 @@ const InsuranceSection = () => {
           </div>
         </div>
 
-        {/* Documentation and Partners */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          {/* Required Documents */}
-          <div className="bg-gray-900 rounded-lg p-8">
-            <div className="flex items-center mb-6">
-              <FileText className="w-8 h-8 text-red-500 mr-4" />
-              <h3 className="text-2xl font-bold text-white">Documentation Required</h3>
-            </div>
-            <div className="space-y-3">
-              {documentsNeeded.map((doc, index) => (
-                <div key={index} className="flex items-center">
-                  <CheckCircle className="w-4 h-4 text-red-500 mr-3 flex-shrink-0" />
-                  <span className="text-gray-300">{doc}</span>
-                </div>
-              ))}
-            </div>
-            <div className="mt-6 p-4 bg-red-500 bg-opacity-10 border border-red-500 rounded-lg">
-              <p className="text-red-400 text-sm">
-                <strong>Note:</strong> We assist in preparing and organizing all required documentation for your convenience.
-              </p>
-            </div>
-          </div>
-
-          {/* Insurance Partners */}
-          <div className="bg-gray-900 rounded-lg p-8">
-            <div className="flex items-center mb-6">
-              <Shield className="w-8 h-8 text-red-500 mr-4" />
-              <h3 className="text-2xl font-bold text-white">Insurance Partners</h3>
-            </div>
-            <p className="text-gray-400 mb-6">We work with all major insurance companies for seamless claim processing:</p>
-            <div className="grid grid-cols-2 gap-4">
-              {insurancePartners.map((partner, index) => (
-                <div key={index} className="flex items-center p-3 bg-black rounded-lg">
-                  <CheckCircle className="w-4 h-4 text-red-500 mr-3 flex-shrink-0" />
-                  <span className="text-gray-300 text-sm">{partner}</span>
-                </div>
-              ))}
-            </div>
-            <div className="mt-6 text-center">
-              <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-300">
-                Get Claim Assistance
-              </button>
-            </div>
-          </div>
-        </div>
 
         {/* Customer Testimonials */}
         <div className="mb-16">

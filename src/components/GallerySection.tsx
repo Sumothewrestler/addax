@@ -39,11 +39,8 @@ const GallerySection = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 racing-sans-one-regular">
-            Our Service Center
+Our Services
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Take a look at our professional automotive service facility in Vanagaram, Chennai
-          </p>
           <div className="w-20 h-1 bg-red-500 mx-auto mt-4"></div>
         </div>
 
@@ -113,26 +110,6 @@ const GallerySection = () => {
           </div>
         )}
 
-        {/* Business Info */}
-        <div className="mt-16 text-center">
-          <div className="bg-gray-900 rounded-lg p-8">
-            <h3 className="text-2xl font-bold text-white mb-4 racing-sans-one-regular">
-              Visit Our Service Center
-            </h3>
-            <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
-              Located in Vanagaram, Chennai, our state-of-the-art facility is equipped with modern 
-              tools and staffed by experienced technicians to provide the best automotive services.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-300">
-                Get Directions
-              </button>
-              <button className="border border-red-500 text-red-500 hover:bg-red-500 hover:text-white px-8 py-3 rounded-lg font-medium transition-colors duration-300">
-                Call Now
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

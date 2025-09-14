@@ -4,6 +4,17 @@ import { useState } from 'react';
 import { Menu, X, ChevronDown, User, ShoppingCart, Search } from 'lucide-react';
 import Link from 'next/link';
 
+interface NavItem {
+  name: string;
+  href?: string;
+  sectionId?: string;
+  submenu?: Array<{
+    name: string;
+    serviceId?: number;
+    sectionId?: string;
+  }>;
+}
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -34,7 +45,7 @@ const Header = () => {
     setActiveDropdown(null);
   };
 
-  const navItems = [
+  const navItems: NavItem[] = [
     {
       name: 'SERVICES',
       submenu: [
@@ -61,7 +72,6 @@ const Header = () => {
         { name: 'Maintenance Packages', sectionId: 'pricing' },
       ]
     },
-    { name: 'ABOUT', href: '/about' },
     { name: 'CONTACT', sectionId: 'contact' },
   ];
 
@@ -103,9 +113,9 @@ const Header = () => {
               >
                 <button
                   onClick={() => {
-                    if (item.href) {
+                    if ('href' in item && item.href) {
                       window.location.href = item.href;
-                    } else if (item.sectionId) {
+                    } else if ('sectionId' in item && item.sectionId) {
                       scrollToSection(item.sectionId);
                     }
                   }}
@@ -159,38 +169,46 @@ const Header = () => {
             <div className="container mx-auto px-4 py-4">
               {navItems.map((item) => (
                 <div key={item.name} className="mb-4">
-                  <button
-                    onClick={() => {
-                      if (item.href) {
-                        window.location.href = item.href;
-                      } else if (item.sectionId) {
-                        scrollToSection(item.sectionId);
-                      }
-                      setIsMenuOpen(false);
-                    }}
-                    className="block w-full text-left py-2 text-lg font-medium border-b border-gray-800"
-                  >
-                    {item.name}
-                  </button>
-                  {item.submenu && (
-                    <div className="mt-2 ml-4">
-                      {item.submenu.map((subItem) => (
-                        <button
-                          key={subItem.name}
-                          onClick={() => {
-                            if (subItem.serviceId) {
-                              scrollToService(subItem.serviceId);
-                            } else if (subItem.sectionId) {
-                              scrollToSection(subItem.sectionId);
-                            }
-                            setIsMenuOpen(false);
-                          }}
-                          className="block w-full text-left py-1 text-gray-300 hover:text-red-500 transition-colors"
-                        >
-                          {subItem.name}
-                        </button>
-                      ))}
+                  {item.submenu ? (
+                    // For items with submenu, show the submenu directly
+                    <div>
+                      <div className="py-2 text-lg font-medium border-b border-gray-800 text-white">
+                        {item.name}
+                      </div>
+                      <div className="mt-2 ml-4">
+                        {item.submenu.map((subItem) => (
+                          <button
+                            key={subItem.name}
+                            onClick={() => {
+                              if (subItem.serviceId) {
+                                scrollToService(subItem.serviceId);
+                              } else if (subItem.sectionId) {
+                                scrollToSection(subItem.sectionId);
+                              }
+                              setIsMenuOpen(false);
+                            }}
+                            className="block w-full text-left py-2 text-gray-300 hover:text-red-500 transition-colors border-b border-gray-700 last:border-b-0"
+                          >
+                            {subItem.name}
+                          </button>
+                        ))}
+                      </div>
                     </div>
+                  ) : (
+                    // For items without submenu, regular button
+                    <button
+                      onClick={() => {
+                        if ('href' in item && item.href) {
+                          window.location.href = item.href;
+                        } else if ('sectionId' in item && item.sectionId) {
+                          scrollToSection(item.sectionId);
+                        }
+                        setIsMenuOpen(false);
+                      }}
+                      className="block w-full text-left py-2 text-lg font-medium border-b border-gray-800 text-white hover:text-red-500 transition-colors"
+                    >
+                      {item.name}
+                    </button>
                   )}
                 </div>
               ))}

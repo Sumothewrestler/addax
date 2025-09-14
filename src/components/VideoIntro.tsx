@@ -60,10 +60,10 @@ const VideoIntro = ({ onComplete }: VideoIntroProps) => {
   return (
     <div className="fixed inset-0 bg-black z-50 flex items-center justify-center p-4 md:p-0">
       {/* Video Container */}
-      <div className="relative w-full h-full md:w-full md:h-full">
+      <div className="relative w-full h-full md:w-full md:h-full flex items-center justify-center">
         <video
           ref={videoRef}
-          className="w-full h-auto max-h-[60vh] md:w-full md:h-full md:object-cover object-contain mx-auto"
+          className="w-full h-auto max-h-[70vh] md:max-w-full md:max-h-full md:object-contain object-contain"
           muted
           playsInline
           preload="auto"

@@ -95,9 +95,6 @@ const DetailedServices = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 racing-sans-one-regular">
             Our Professional Services
           </h2>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-            Comprehensive automotive solutions with transparent pricing, professional expertise, and reliable service timelines
-          </p>
           <div className="w-20 h-1 bg-red-500 mx-auto mt-4"></div>
         </div>
 
@@ -152,19 +149,6 @@ const DetailedServices = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-gray-400 text-sm mb-4">
-            * Pricing may vary based on vehicle model and specific requirements
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-300">
-              Get Free Quote
-            </button>
-            <button className="border border-red-500 text-red-500 hover:bg-red-500 hover:text-white px-8 py-3 rounded-lg font-medium transition-colors duration-300">
-              Call Now
-            </button>
-          </div>
-        </div>
       </div>
     </section>
   );
