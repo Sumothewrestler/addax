@@ -63,7 +63,7 @@ const VideoIntro = ({ onComplete }: VideoIntroProps) => {
       <div className="relative w-full h-full">
         <video
           ref={videoRef}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover md:object-cover object-contain"
           muted
           playsInline
           preload="auto"
@@ -75,7 +75,7 @@ const VideoIntro = ({ onComplete }: VideoIntroProps) => {
         {/* Skip Button */}
         <button
           onClick={handleSkip}
-          className="absolute top-8 right-8 bg-black bg-opacity-50 text-white px-4 py-2 rounded-lg hover:bg-opacity-75 transition-all duration-300 text-sm"
+          className="absolute top-4 right-4 md:top-8 md:right-8 bg-black bg-opacity-50 text-white px-3 py-2 md:px-4 md:py-2 rounded-lg hover:bg-opacity-75 transition-all duration-300 text-xs md:text-sm"
         >
           Skip Intro
         </button>
