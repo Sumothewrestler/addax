@@ -60,8 +60,8 @@ const InsuranceSection = () => {
       rating: 5
     },
     {
-      name: 'Priya Nair',
-      location: 'Poonamallee, Chennai', 
+      name: 'Hariharan',
+      location: 'Velachery', 
       comment: 'Excellent insurance assistance service. They helped me get ₹45,000 claim approved and repaired my car to original condition. Very professional team.',
       rating: 5
     },

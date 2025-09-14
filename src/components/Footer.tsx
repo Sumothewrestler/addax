@@ -7,7 +7,6 @@ import {
   Twitter, 
   Youtube, 
   Phone, 
-  Mail, 
   MapPin, 
   Clock,
   ChevronRight
@@ -40,30 +39,6 @@ const Footer = () => {
 
   return (
     <footer className="bg-black text-white">
-      {/* Newsletter Section */}
-      <div className="border-b border-gray-800 py-12">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="mb-6 md:mb-0">
-              <h3 className="text-2xl font-bold mb-2">Stay Updated</h3>
-              <p className="text-gray-400">
-                Get the latest news, offers, and updates from ADDAX AUTOMOTIVE
-              </p>
-            </div>
-            <div className="flex w-full md:w-auto max-w-md">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 bg-gray-900 border border-gray-700 rounded-l-lg focus:outline-none focus:border-red-500 transition-colors"
-              />
-              <button className="bg-red-500 hover:bg-red-600 px-6 py-3 rounded-r-lg transition-colors duration-300">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Main Footer Content */}
       <div className="py-12">
         <div className="container mx-auto px-4">
@@ -83,11 +58,7 @@ const Footer = () => {
               <div className="space-y-3">
                 <div className="flex items-center">
                   <Phone size={16} className="text-red-500 mr-3" />
-                  <span className="text-gray-400">Contact us for service</span>
-                </div>
-                <div className="flex items-center">
-                  <Mail size={16} className="text-red-500 mr-3" />
-                  <span className="text-gray-400">info@addaxautomotive.com</span>
+                  <span className="text-gray-400">Contact us for Service & Assistance - 93630 39969</span>
                 </div>
                 <div className="flex items-start">
                   <MapPin size={16} className="text-red-500 mr-3 mt-1" />

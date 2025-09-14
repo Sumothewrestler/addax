@@ -29,11 +29,11 @@ const TestimonialCarousel = () => {
     },
     {
       id: 2,
-      name: 'Meera Krishnan',
-      location: 'Poonamallee, Chennai',
+      name: 'Hariharan',
+      location: 'Velachery',
       rating: 4,
       comment: 'Good service for general maintenance. They explained all the work needed and completed it on time. Will visit again.',
-      avatar: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNFRjQ0NDQiLz4KPHB0eXBlPgouYXZhdGFyIHsKICBmb250OiA2cHggc2Fucy1zZXJpZjsKICBmaWxsOiB3aGl0ZTsKICB0ZXh0LWFuY2hvcjogbWlkZGxlOwogIGRvbWluYW50LWJhc2VsaW5lOiBjZW50cmFsOwp9Cjwvc3R5bGU+Cjx0ZXh0IHg9IjMyIiB5PSIzNiIgY2xhc3M9ImF2YXRhciI+TTwvdGV4dD4KPC9zdmc+',
+      avatar: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNFRjQ0NDQiLz4KPHN0eWxlPgouYXZhdGFyIHsKICBmb250OiA2cHggc2Fucy1zZXJpZjsKICBmaWxsOiB3aGl0ZTsKICB0ZXh0LWFuY2hvcjogbWlkZGxlOwogIGRvbWluYW50LWJhc2VsaW5lOiBjZW50cmFsOwp9Cjwvc3R5bGU+Cjx0ZXh0IHg9IjMyIiB5PSIzNiIgY2xhc3M9ImF2YXRhciI+SDwvdGV4dD4KPC9zdmc+',
       bike: 'Maruti Swift'
     },
     {

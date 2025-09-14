@@ -19,30 +19,39 @@ const HeroSlider = () => {
   const slides: Slide[] = [
     {
       id: 1,
-      title: "Professional Automotive Services",
-      subtitle: "Your Trusted Car Care Partner",
-      description: "Complete car repair, maintenance, and servicing solutions in Chennai with expert technicians, transparent pricing, and 24/7 availability.",
-      image: "/images/gallery/addax-shop-1.jpg",
-      cta: "View Services",
-      ctaLink: "/services"
+      title: "",
+      subtitle: "",
+      description: "",
+      image: "/images/hero/1.png",
+      cta: "",
+      ctaLink: ""
     },
     {
       id: 2,
-      title: "Insurance Claim Assistance",
-      subtitle: "Hassle-Free Insurance Claims",
-      description: "Expert support for vehicle insurance claims including documentation, surveyor coordination, and direct settlement with major insurers.",
-      image: "/images/gallery/addax-shop-2.jpg",
-      cta: "Get Claim Help",
-      ctaLink: "/insurance/claim-assistance"
+      title: "",
+      subtitle: "",
+      description: "",
+      image: "/images/hero/2.png",
+      cta: "",
+      ctaLink: ""
     },
     {
       id: 3,
-      title: "Transparent Pricing & Packages",
-      subtitle: "No Hidden Charges",
-      description: "Honest, upfront pricing with annual maintenance packages starting from ₹3,999. Save money with our comprehensive care plans.",
-      image: "/images/gallery/addax-shop-3.jpg",
-      cta: "View Pricing",
-      ctaLink: "/pricing"
+      title: "",
+      subtitle: "",
+      description: "",
+      image: "/images/hero/3.png",
+      cta: "",
+      ctaLink: ""
+    },
+    {
+      id: 4,
+      title: "",
+      subtitle: "",
+      description: "",
+      image: "/images/hero/4.png",
+      cta: "",
+      ctaLink: ""
     }
   ];
 
@@ -77,29 +86,9 @@ const HeroSlider = () => {
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${slide.image})`
+                backgroundImage: `url(${slide.image})`
               }}
             />
-
-            {/* Content */}
-            <div className="relative z-10 flex items-center h-full">
-              <div className="container mx-auto px-4">
-                <div className="max-w-2xl text-white">
-                  <h3 className="text-red-500 text-lg font-medium mb-2">
-                    {slide.subtitle}
-                  </h3>
-                  <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight racing-sans-one-regular">
-                    {slide.title}
-                  </h1>
-                  <p className="text-gray-300 text-lg mb-8">
-                    {slide.description}
-                  </p>
-                  <button className="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-300">
-                    {slide.cta}
-                  </button>
-                </div>
-              </div>
-            </div>
           </div>
         ))}
       </div>

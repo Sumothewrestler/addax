@@ -48,8 +48,7 @@ const Header = () => {
       <div className="border-b border-gray-800 py-2">
         <div className="container mx-auto px-4 flex justify-between items-center text-sm">
           <div className="flex items-center space-x-4">
-            <span>📞 Contact us for service</span>
-            <span>✉️ info@addaxautomotive.com</span>
+            <span>📞 Contact us for Service & Assistance - 93630 39969</span>
           </div>
           <div className="flex items-center space-x-4">
             <button className="hover:text-red-500 transition-colors">

@@ -5,6 +5,7 @@ import GallerySection from '@/components/GallerySection';
 import InsuranceSection from '@/components/InsuranceSection';
 import PricingSection from '@/components/PricingSection';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
+import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <InsuranceSection />
       <PricingSection />
       <TestimonialCarousel />
+      <ContactSection />
       <Footer />
     </div>
   );
